@@ -1,5 +1,5 @@
-#ifndef		_SIGMA_API_CONTAINER_TRAITS_HPP_
-#define		_SIGMA_API_CONTAINER_TRAITS_HPP_
+#ifndef		_SIGMA_API_META_CONTAINER_TRAITS_HPP_
+#define		_SIGMA_API_META_CONTAINER_TRAITS_HPP_
 
 #include <type_traits>
 
@@ -416,4 +416,4 @@ namespace sigma::meta
 	template <typename Type_>
 	inline constexpr bool negation(Type<Type_>) { return std::negation_v<Type_>; }
 }
-#endif	//	_SIGMA_API_CONTAINER_TRAITS_HPP_
+#endif	//	_SIGMA_API_META_CONTAINER_TRAITS_HPP_
