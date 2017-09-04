@@ -3,7 +3,7 @@ PROJECT(sigma_api_meta)
 
 SET(CMAKE_CXX_FLAGS "-std=c++1z -fconcepts")
 
-INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/../")
+INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/../../../")
 
 FILE(GLOB source_files "src/*.cpp")
 
