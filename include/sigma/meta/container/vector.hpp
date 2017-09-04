@@ -79,6 +79,9 @@ namespace sigma::meta
 		template <typename... Others_>
 		constexpr bool operator == (TVector<Others_...>) const { return false; }
 		constexpr bool operator == (TVector<Types_...>) const { return true; }
+
+		template <typename... Others_>
+		constexpr bool operator != (TVector<Others_...> other) const { return !(*this == other); }
 	};
 
 
@@ -166,6 +169,9 @@ namespace sigma::meta
 		template <auto... others_>
 		constexpr bool operator == (VVector<others_...>) const { return false; }
 		constexpr bool operator == (VVector<values_...>) const { return true; }
+
+		template <auto... others_>
+		constexpr bool operator != (VVector<others_...> other) const { return !(*this == other); }
 	};
 }
 
