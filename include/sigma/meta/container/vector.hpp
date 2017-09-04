@@ -45,14 +45,14 @@ namespace sigma::meta
 		template <typename, typename... Trail_>
 		static constexpr auto pop_front_impl(void) { return TVector<Trail_...>{}; }
 
-		template <typename Tuple_, typename First_, typename... Trail_>
+		template <typename Vector_, typename First_, typename... Trail_>
 		static constexpr auto pop_back_impl(void) 
 		{
-			if constexpr (TVector<Trail_...>::size() == 0) return Tuple_{};
+			if constexpr (TVector<Trail_...>::size() == 0) return Vector_{};
 			else
 			{
-				using ttuple_t = decltype(Tuple_::push_back(type_c<First_>));
-				return pop_back_impl<ttuple_t, Trail_...>();
+				using tvector_t = decltype(Vector_::push_back(type_c<First_>));
+				return pop_back_impl<tvector_t, Trail_...>();
 			}
 		};
 
@@ -77,11 +77,9 @@ namespace sigma::meta
 		}
 
 		template <typename... Others_>
-		constexpr bool operator == (TVector<Others_...>) { return false; }
-		constexpr bool operator == (TVector<Types_...>) { return true; }
+		constexpr bool operator == (TVector<Others_...>) const { return false; }
+		constexpr bool operator == (TVector<Types_...>) const { return true; }
 	};
-
-
 }
 
 #endif	//	_SIGMA_API_META_CONTINER_VECTOR_HPP_
