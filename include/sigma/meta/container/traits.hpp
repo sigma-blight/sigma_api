@@ -13,6 +13,9 @@ namespace sigma::meta
 		template <typename Other_>
 		constexpr bool operator == (Type<Other_>) const { return false; }
 		constexpr bool operator == (Type<Type_>) const { return true; }
+
+		template <typename Other_>
+		constexpr bool operator != (Type<Other_> other) const { return !(*this == other); }
 	};
 
 	template <typename Type_>
