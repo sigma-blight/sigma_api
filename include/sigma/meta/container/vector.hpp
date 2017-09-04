@@ -135,7 +135,7 @@ namespace sigma::meta
 			if constexpr (VVector<trail_...>::size() == 0) return Vector_{};
 			else
 			{
-				using vvector_t = decltype(Vector_::push_back(first_));
+				using vvector_t = decltype(Vector_::template push_back<first_>());
 				return pop_back_impl<vvector_t, trail_...>();
 			}
 		}
@@ -144,15 +144,17 @@ namespace sigma::meta
 
 		template <auto value_>
 		static constexpr auto push_back(std::integral_constant<decltype(value_), value_>)
-		{
-			return VVector<values_..., value_>{};
-		}
+		{ return VVector<values_..., value_>{}; }
+		
+		template <auto value_>
+		static constexpr auto push_back(void) { return VVector<values_..., value_>{}; }
 
 		template <auto value_>
 		static constexpr auto push_front(std::integral_constant<decltype(value_), value_>)
-		{
-			return VVector<value_, values_...>{};
-		}
+		{ return VVector<value_, values_...>{}; }
+
+		template <auto value_>
+		static constexpr auto push_front(void) { return VVector<value_, values_...>{}; }
 
 		static constexpr auto pop_front(void)
 		{
@@ -163,7 +165,7 @@ namespace sigma::meta
 		static constexpr auto pop_back(void)
 		{
 			assert_safe_pop();
-			return pop_back_impl<values_...>();
+			return pop_back_impl<VVector<>, values_...>();
 		}
 
 		template <auto... others_>
