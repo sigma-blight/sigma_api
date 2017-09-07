@@ -9,7 +9,10 @@ FILE(GLOB source_files "src/*.cpp")
 #	FLAGS
 
 SET(CMAKE_CXX_FLAGS 
-	"-std=c++1z -O0 -fno-rtti -fno-exceptions -Wall -pedantic")
+	"-std=c++1z -O0 \
+	-fconcepts \
+	-fno-rtti -fno-exceptions \
+	-Wall -pedantic")
 
 
 # OUTPUT BINARY
