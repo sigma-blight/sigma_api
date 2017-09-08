@@ -26,6 +26,9 @@ namespace sigma::math
 
 		// Contains 0 element
 		static_cast<Field_>(0);
+
+		// Closed under Negation
+		static_cast<Field_>(-scalar);
 	};
 
 	template <std::size_t n_, FieldType Field_>
