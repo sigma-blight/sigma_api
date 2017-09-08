@@ -152,8 +152,9 @@ TEST(TAG, element_constructor)
 {
 	sigma::math::BasicVectorSpace<100, int> v;
 	generate_default(v.element());
+
 	sigma::math::BasicVectorSpace<100, int> copy = v.element();
-	test_generate_default(v.element());
+	test_generate_default(copy.element());
 }
 
 TEST(TAG, assignment)
